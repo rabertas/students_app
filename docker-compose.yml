@@ -1,0 +1,11 @@
+version: "3"
+services:
+  ddda:
+    build:
+      context: .
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./app:/app
+    command: >
+      sh -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8888"
